@@ -4,6 +4,12 @@ LabelSpooler
 This program polls RAW data from a SQL Server database table and sends data to a printer.
 It is useful to send RAW ZPL to Zebra printers, for example.  
 
+Requirements
+------------
+
+- .NET Framework 4.0
+- Working SQL Server Database
+
 Installation
 ------------
 
@@ -28,4 +34,4 @@ c:\LabelSpooler\LabelSpooler.exe --uninstall
 Need Commercial Support?
 ------------------------
 
-Send me a mail: r.bicelli@gmail.com
+If you need commercial support you can send a mail to: r.bicelli@gmail.com.
