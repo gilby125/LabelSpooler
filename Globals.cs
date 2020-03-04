@@ -41,7 +41,7 @@ namespace LabelSpooler
             appPath = AppDomain.CurrentDomain.BaseDirectory;
             INIFilename = appPath + "config.ini";
             
-            string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            appVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             if (File.Exists(INIFilename))
             {

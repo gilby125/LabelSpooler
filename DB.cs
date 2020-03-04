@@ -22,6 +22,7 @@ namespace LabelSpooler
         private static string _dbUsername;
         private static string _dbDatabase;
         private static string _dbPassword;
+        private static bool _logAlreadyLogged;
 
         /* Properties */
         public static string Server
@@ -114,11 +115,15 @@ namespace LabelSpooler
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 dataTable.Load((IDataReader)sqlDataReader);
                 DB.conn.Close();
+                _logAlreadyLogged = false;
                 return dataTable;
             }
             catch (Exception ex)
             {
-                Globals.eventRecord("Error getting Jobs: " + ex.Message, EventLogEntryType.Error);
+                if (_logAlreadyLogged==false) { 
+                    Globals.eventRecord("Error getting Jobs: " + ex.Message, EventLogEntryType.Error);
+                    _logAlreadyLogged = true;
+                }
                 return dataTable;
             }
         }
